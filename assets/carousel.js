@@ -18,8 +18,11 @@ function updateCarousel() {
   switchSelectedDot(currentIndex);
 }
 
-document.querySelectorAll('.arrow').forEach(arrow => {
-  arrow.addEventListener('click', () => updateIndex(arrow.classList.contains('arrow_left') ? 'left' : 'right'));
+document.querySelectorAll('.arrow_left, .arrow_right').forEach(arrow => {
+  arrow.addEventListener('click', event => {
+    const isLeftArrow = event.target.classList.contains('arrow_left');
+    updateIndex(isLeftArrow ? 'left' : 'right');
+  });
 });
 
 updateCarousel();
